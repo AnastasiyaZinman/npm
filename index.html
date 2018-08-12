@@ -12,31 +12,29 @@
       <div class="page-header">
         <h1>BookLook <i class="fa fa-eye"></i></h1>
       </div>
-
-      <div class="book">
-      </div>
-
-      <form>
+        <form>
         <div class="container">
         <h3>Enter ISBN Number</h3>
 
         <div class="form-group">
           <input type="text" id="isbn" class="form-control" placeholder="ISBN Number">
         </div>
-
         <button type="button" class="btn btn-primary search-book">Search</button>
       </div>
       </form>
-
+      <div class="book">
+      </div>
     </div>
   </div>
   <script id="book-template" type="text/x-handlebars-template">    
   <ul>
-  <li> {{ items.[0].volumeInfo.title }} </li>
-  <li> {{ items.[0].volumeInfo.description }} </li> 
-  <li> {{ items.[0].volumeInfo.authors.[0] }} </li>
+  <li> {{ volumeInfo.title }} </li>
+  {{#if volumeInfo.description}}
+  <p> <span class="description">Description:</span> {{volumeInfo.description}} </p>
+  {{/if}}
+  <p> Author: {{ volumeInfo.authors.[0] }} </p>
   </ul>
-  <img src="{{items.[0].volumeInfo.imageLinks.thumbnail}}" />;
+  <img src="{{volumeInfo.imageLinks.thumbnail}}" alt="image" title="{{volumeInfo.title}}" />
 
   </script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>

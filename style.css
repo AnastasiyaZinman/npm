@@ -8,3 +8,7 @@
 img {
   margin: 0 40px;
 }
+.description {
+text-decoration: underline;
+display: flex;
+}
